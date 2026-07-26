@@ -17,6 +17,13 @@
    "Já adotados", com o carimbo ADOTADO em cima da foto.
    (Se quiser mesmo tirar do site, aí sim apague o bloco inteiro.)
 
+   PARA ESCONDER UMA INFORMAÇÃO DE UM ANIMAL:
+   Deixe o campo com as aspas vazias:  peso: "",
+   Aquela linha simplesmente não aparece no card daquele animal.
+   Funciona em qualquer campo: idade, peso, sexo, vacinado, castrado,
+   comportamento e história.
+   Se deixar  castrado: ""  a etiqueta em cima da foto também some.
+
    REGRAS RÁPIDAS:
    - tipo: escreva "cachorro" ou "gato"  (isso alimenta o filtro)
    - castrado / vacinado: escreva true (sim) ou false (não)
@@ -36,7 +43,7 @@
      idade: "Aprox. 1 ano",
      peso: "10 kg",
      castrado: true,
-     vacinado: false,
+     vacinado: false,      // use "" para não mostrar esta linha
      adotado: false,
      comportamento: "Descrição curta do jeitinho dele.",
      historia: "Onde foi resgatado e o que aconteceu até aqui.",
@@ -47,17 +54,17 @@
 const ANIMAIS = [
 
   {
-    nome: "Mel",
+    nome: "Lupi",
     tipo: "cachorro",
-    foto: "mel.jpeg",
-    sexo: "Fêmea",
-    idade: "Aprox. 2 anos",
-    peso: "14 kg",
-    castrado: true,
+    foto: "lupi.jpeg",
+    sexo: "Macho",
+    idade: "Aprox. 8 meses",
+    peso: "Aprox. 12 kg",
+    castrado: false,
     vacinado: true,
     adotado: false,
-    comportamento: "Muito dócil e grudenta. Adora colo, se dá bem com outros cachorros e é tranquila com crianças. Ainda tem um pouco de medo de barulho alto.",
-    historia: "Resgatada no bairro Jardim Bela Vista, em Monte Mor, muito magra e cheia de carrapatos. Passou por tratamento veterinário, ganhou peso e hoje está pronta para uma família.",
+    comportamento: "Muito dócil.",
+    historia: "Em situação de rua.",
   },
 
   {
@@ -65,13 +72,13 @@ const ANIMAIS = [
     tipo: "cachorro",
     foto: "pipoca.jpeg",
     sexo: "Fêmea",
-    idade: "Aprox. 1 ano e 6 meses",
-    peso: "16 kg",
+    idade: "Aprox. 2 anos",
+    peso: "Aprox. 13 kg",
     castrado: true,
     vacinado: true,
     adotado: false,
-    comportamento: "Brincalhona e cheia de energia. Ideal para casa com quintal. Aprende comando rápido e é carinhosa demais com gente.",
-    historia: "Apareceu abandonada na entrada de um sítio na estrada de Monte Mor. Estava com sarna, já tratada e curada. Vive hoje em lar temporário.",
+    comportamento: "Muito carinhosa e muito dócil.",
+    historia: "Em situação de rua.",
   },
 
   {
@@ -79,27 +86,27 @@ const ANIMAIS = [
     tipo: "cachorro",
     foto: "thor.jpeg",
     sexo: "Macho",
-    idade: "Aprox. 8 meses",
-    peso: "18 kg (ainda em crescimento)",
-    castrado: false,
+    idade: "Aprox. 2 anos",
+    peso: "Aprox. 14 kg",
+    castrado: true,
     vacinado: true,
-    adotado: true,   // <-- deixei como exemplo. Troque para false quando for editar.
-    comportamento: "Filhote calmo para a idade, muito observador. Já faz as necessidades no lugar certo. Convive bem com outros cães.",
-    historia: "Encontrado sozinho perto da rodovia, na divisa com Hortolândia. A castração está agendada e será feita antes da entrega ao adotante.",
+    adotado: false,
+    comportamento: "Muito dócil.",
+    historia: "Em situação de rua.",
   },
 
   {
-    nome: "Nina",
-    tipo: "gato",
-    foto: "nina.jpeg",
-    sexo: "Fêmea",
-    idade: "Aprox. 6 meses",
-    peso: "2,5 kg",
-    castrado: false,
+    nome: "Pingo",
+    tipo: "cachorro",
+    foto: "pingo.jpeg",
+    sexo: "Macho",
+    idade: "Aprox. 2 anos",
+    peso: "Aprox. 12 kg",
+    castrado: true,
     vacinado: true,
-    adotado: false,
-    comportamento: "Tímida no começo, mas vira um chiclete depois que confia. Usa a caixa de areia direitinho e é ótima com outros gatos.",
-    historia: "Resgatada com os irmãos dentro de um terreno baldio no centro de Monte Mor. Os irmãos já foram adotados e ela é a última esperando um lar.",
+    adotado: true,
+    comportamento: "Dócil.",
+    historia: "",
   },
 
 ];
