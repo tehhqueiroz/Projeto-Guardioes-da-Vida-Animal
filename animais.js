@@ -26,6 +26,11 @@
 
    REGRAS RÁPIDAS:
    - tipo: escreva "cachorro" ou "gato"  (isso alimenta o filtro)
+   - whatsapp: o número de quem cuida DAQUELE animal. Pode escrever do
+     jeito que quiser: "19 99999-9999" ou "(19) 99999-9999". É esse número
+     que abre quando alguém clica em "Quero adotar".
+   - nome: também é opcional. Se deixar  nome: ""  o card fica sem nome e
+     o botão vira só "Quero adotar".
    - castrado / vacinado: escreva true (sim) ou false (não)
    - adotado: false enquanto procura lar / true quando for adotado
    - texto sempre entre "aspas"
@@ -39,6 +44,7 @@
      nome: "Nome do animal",
      tipo: "cachorro",
      foto: "arquivo.jpeg",
+     whatsapp: "19 99999-9999",
      sexo: "Fêmea",
      idade: "Aprox. 1 ano",
      peso: "10 kg",
@@ -57,6 +63,7 @@ const ANIMAIS = [
     nome: "Lupi",
     tipo: "cachorro",
     foto: "lupi.jpeg",
+    whatsapp: "19 99999-9999",
     sexo: "Macho",
     idade: "Aprox. 8 meses",
     peso: "Aprox. 12 kg",
@@ -71,6 +78,7 @@ const ANIMAIS = [
     nome: "Pipoca",
     tipo: "cachorro",
     foto: "pipoca.jpeg",
+    whatsapp: "19 99999-9999",
     sexo: "Fêmea",
     idade: "Aprox. 2 anos",
     peso: "Aprox. 13 kg",
@@ -85,6 +93,7 @@ const ANIMAIS = [
     nome: "Thor",
     tipo: "cachorro",
     foto: "thor.jpeg",
+    whatsapp: "19 99999-9999",
     sexo: "Macho",
     idade: "Aprox. 2 anos",
     peso: "Aprox. 14 kg",
@@ -99,6 +108,7 @@ const ANIMAIS = [
     nome: "Pingo",
     tipo: "cachorro",
     foto: "pingo.jpeg",
+    whatsapp: "19 99999-9999",
     sexo: "Macho",
     idade: "Aprox. 2 anos",
     peso: "Aprox. 12 kg",
