@@ -6,8 +6,8 @@ Site do projeto de resgate e adoção de animais de Monte Mor — SP.
 
 Está tudo numa pasta só, sem subpastas:
 
-- `index.html` — a página inteira (design, textos fixos, funcionamento). **Raramente precisa mexer.**
-- `animais.js` — a lista dos animais para adoção. **É aqui que você edita.**
+- `index.html` — a página inteira (design, textos fixos, funcionamento).
+- `animais.js` — a lista dos animais para adoção. **Arquivo onde utilizo para edição.**
 - `logo.png` — a logo do projeto.
 - `mel.jpeg`, `pipoca.jpeg`, `thor.jpeg` — fotos dos animais.
 
