@@ -167,6 +167,21 @@ p{margin:0}
 .ajuda-item a{color:var(--terra-700);font-weight:600;text-decoration:none;font-size:15.5px}
 .ajuda-item a:hover{text-decoration:underline}
 
+/* ---------- REGRAS DA ADOÇÃO ---------- */
+.regras{
+  display:grid;gap:1px;grid-template-columns:repeat(4,1fr);
+  background:rgba(46,57,34,.14);border:1px solid rgba(46,57,34,.14);
+  border-radius:var(--r);overflow:hidden;margin-bottom:46px;
+}
+.regra{background:var(--paper);padding:22px 20px 24px}
+.regra .marca{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:9px;
+}
+.regra p:last-child{font-size:15px;color:var(--ink-60);line-height:1.5}
+@media (max-width:900px){.regras{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.regras{grid-template-columns:1fr}}
+
 /* ---------- FILTRO ---------- */
 .animais-topo{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;margin-bottom:26px}
 .filtro{display:flex;gap:8px;flex-wrap:wrap}
@@ -264,7 +279,7 @@ p{margin:0}
 
 /* ---------- RODAPÉ ---------- */
 .rodape{background:var(--olive-900);color:#fff;padding:64px 0 34px}
-.rodape-grid{display:grid;gap:34px;grid-template-columns:1.4fr 1fr 1fr}
+.rodape-grid{display:grid;gap:34px;grid-template-columns:1.4fr 1fr}
 @media (max-width:760px){.rodape-grid{grid-template-columns:1fr}}
 .rodape img{width:74px;height:74px;border-radius:50%;background:#fff;padding:5px;margin-bottom:16px}
 .rodape h4{
@@ -279,16 +294,6 @@ p{margin:0}
   font-family:var(--f-mono);font-size:12px;color:rgba(255,255,255,.45);
   display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
 }
-
-/* ---------- WHATSAPP FLUTUANTE ---------- */
-.zap{
-  position:fixed;right:18px;bottom:18px;z-index:70;
-  width:56px;height:56px;border-radius:50%;background:#25D366;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s;
-}
-.zap:hover{transform:scale(1.07)}
-.zap svg{width:30px;height:30px;fill:#fff}
 
 /* ---------- REVELAÇÃO ---------- */
 .rev{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
@@ -385,12 +390,12 @@ p{margin:0}
         <div class="ajuda-item rev">
           <h3>Doar ração e itens</h3>
           <p>Ração, coleira, caixa de transporte, cobertor, areia de gato ou remédio. Chame no WhatsApp que a gente combina a retirada.</p>
-          <a href="https://wa.me/5519999999999?text=Ol%C3%A1!%20Quero%20doar%20ra%C3%A7%C3%A3o%20ou%20itens%20para%20o%20projeto." target="_blank" rel="noopener">Falar no WhatsApp →</a>
+          <a href="https://wa.me/5513991879391?text=Ol%C3%A1!%20Quero%20doar%20ra%C3%A7%C3%A3o%20ou%20itens%20para%20o%20projeto." target="_blank" rel="noopener">Falar no WhatsApp →</a>
         </div>
         <div class="ajuda-item rev">
           <h3>Ser lar temporário</h3>
           <p>Cuidar de um animal por algumas semanas até ele ser adotado. Você dá o espaço e o carinho, o projeto ajuda com o resto.</p>
-          <a href="https://wa.me/5519999999999?text=Ol%C3%A1!%20Tenho%20interesse%20em%20ser%20lar%20tempor%C3%A1rio." target="_blank" rel="noopener">Quero ser lar temporário →</a>
+          <a href="https://wa.me/5513991879391?text=Ol%C3%A1!%20Tenho%20interesse%20em%20ser%20lar%20tempor%C3%A1rio." target="_blank" rel="noopener">Quero ser lar temporário →</a>
         </div>
       </div>
     </div>
@@ -403,7 +408,26 @@ p{margin:0}
     <div class="intro rev">
       <p class="eyebrow">Para adoção</p>
       <h2>Eles estão esperando.</h2>
-      <p>Todos passaram por avaliação veterinária. A adoção é gratuita e conversada — queremos ter certeza de que é um bom encontro para os dois lados.</p>
+      <p>Todos passaram por avaliação veterinária. A adoção é gratuita, mas não é entrega rápida: acompanhamos cada passo, porque queremos ter certeza de que é um bom encontro para os dois lados.</p>
+    </div>
+
+    <div class="regras rev">
+      <div class="regra">
+        <p class="marca">Antes</p>
+        <p>A gente conversa com quem tem interesse para entender a rotina, o espaço e como o animal vai viver.</p>
+      </div>
+      <div class="regra">
+        <p class="marca">Termo assinado</p>
+        <p>Toda adoção é formalizada com a assinatura de um termo de responsabilidade sobre os cuidados com o animal.</p>
+      </div>
+      <div class="regra">
+        <p class="marca">Entrega em casa</p>
+        <p>Somos nós que levamos o animal até a residência do adotante. Assim conhecemos pessoalmente o lugar onde ele vai morar.</p>
+      </div>
+      <div class="regra">
+        <p class="marca">Depois</p>
+        <p>O contato não acaba na entrega. Continuamos acompanhando para saber como ele está se adaptando.</p>
+      </div>
     </div>
 
     <div class="animais-topo">
@@ -429,10 +453,6 @@ p{margin:0}
         <p class="lema">Cuidar, proteger e transformar vidas.</p>
       </div>
       <div>
-        <h4>Falar com a gente</h4>
-        <a href="https://wa.me/5519999999999" target="_blank" rel="noopener">WhatsApp (19) 99999-9999</a>
-      </div>
-      <div>
         <h4>Onde estamos</h4>
         <p>Monte Mor — SP</p>
       </div>
@@ -444,9 +464,7 @@ p{margin:0}
   </div>
 </footer>
 
-<a class="zap" href="https://wa.me/5519999999999" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24z"/></svg>
-</a>
+
 
 <!-- ======== DADOS DOS ANIMAIS ======== -->
 <script src="animais.js"></script>
@@ -467,11 +485,25 @@ function escapar(t){
 function vazio(v){ return v === "" || v === null || v === undefined; }
 function simNao(v){ return vazio(v) ? "" : (v === true ? "Sim" : "Não"); }
 
+/* Aceita o número escrito de qualquer jeito: "19 99999-9999", "(19)99999-9999",
+   "5519999999999"... Se o animal não tiver número, usa o número geral do projeto. */
+function foneWA(v){
+  let d = String(v == null ? "" : v).replace(/\D/g, "");
+  if(!d) return FONE;
+  if(d.length <= 11) d = "55" + d;
+  return d;
+}
+
 function cardHTML(a){
-  const nome = escapar(a.nome);
+  const puro = vazio(a.nome) ? "" : String(a.nome).trim();
+  const temNome = puro !== "";
+  const nome = escapar(puro);
   const tipo = (a.tipo || "").toLowerCase() === "gato" ? "Gato" : "Cachorro";
   const adotado = a.adotado === true;
-  const msg = encodeURIComponent(`Olá! Vi o perfil de ${a.nome} no site do Projeto Guardiões da Vida Animal e tenho interesse em adotar.`);
+  const fone = foneWA(a.whatsapp);
+  const msg = encodeURIComponent(temNome
+    ? `Olá! Vi o perfil de ${puro} no site do Projeto Guardiões da Vida Animal e tenho interesse em adotar.`
+    : `Olá! Vi um animal para adoção no site do Projeto Guardiões da Vida Animal e tenho interesse em adotar.`);
 
   const sobreFoto = adotado
     ? '<div class="carimbo"><b>Adotado</b><em>Encontrou um lar</em></div>'
@@ -482,8 +514,8 @@ function cardHTML(a){
           : '<span class="selo nao">Aguarda castração</span>');
 
   const acao = adotado
-    ? `<div class="adotado-nota">🏡 <span><b>${nome} já tem família.</b> Mais uma vida transformada por quem ajudou o projeto.</span></div>`
-    : `<a class="btn btn-olive" href="https://wa.me/${FONE}?text=${msg}" target="_blank" rel="noopener">Quero adotar ${nome}</a>`;
+    ? `<div class="adotado-nota">🏡 <span><b>${temNome ? nome + " já tem família." : "Já tem família."}</b> Mais uma vida transformada por quem ajudou o projeto.</span></div>`
+    : `<a class="btn btn-olive" href="https://wa.me/${fone}?text=${msg}" target="_blank" rel="noopener">Quero adotar${temNome ? " " + nome : ""}</a>`;
 
   const linha = (rot, val) => vazio(val) ? "" : `
     <div class="dado"><dt>${rot}</dt><dd>${escapar(val)}</dd></div>`;
@@ -502,14 +534,14 @@ function cardHTML(a){
   return `
   <article class="bicho rev${adotado ? ' foi-adotado' : ''}" data-tipo="${escapar((a.tipo||"").toLowerCase())}">
     <div class="bicho-foto">
-      <img src="${escapar(a.foto)}" alt="Foto de ${nome}" loading="lazy"
+      <img src="${escapar(a.foto)}" alt="${temNome ? "Foto de " + nome : "Animal para adoção"}" loading="lazy"
            onerror="this.style.display='none';this.parentNode.classList.add('vazia')">
       <div class="semfoto"><b>🐾</b><span>Foto em breve</span></div>
       ${sobreFoto}
     </div>
     <div class="bicho-info">
       <div class="bicho-nome">
-        <h3>${nome}</h3>
+        ${temNome ? `<h3>${nome}</h3>` : ""}
         <span class="tipo">${tipo}</span>
       </div>
       ${fichaLinhas ? `<dl class="dados">${fichaLinhas}</dl>` : ""}
