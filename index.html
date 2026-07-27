@@ -221,7 +221,6 @@ p{margin:0}
   padding:7px 13px;border-radius:999px;color:#fff;backdrop-filter:blur(4px);
 }
 .selo.sim{background:rgba(46,57,34,.88)}
-.selo.nao{background:rgba(200,120,91,.92)}
 
 /* animal já adotado */
 .bicho.foi-adotado{background:#F3F1E8}
@@ -505,13 +504,10 @@ function cardHTML(a){
     ? `Olá! Vi o perfil de ${puro} no site do Projeto Guardiões da Vida Animal e tenho interesse em adotar.`
     : `Olá! Vi um animal para adoção no site do Projeto Guardiões da Vida Animal e tenho interesse em adotar.`);
 
+  /* A única etiqueta sobre a foto é "Castrado", e só quando for true. */
   const sobreFoto = adotado
     ? '<div class="carimbo"><b>Adotado</b><em>Encontrou um lar</em></div>'
-    : vazio(a.castrado)
-      ? ''
-      : (a.castrado
-          ? '<span class="selo sim">Castrado</span>'
-          : '<span class="selo nao">Aguarda castração</span>');
+    : (a.castrado === true ? '<span class="selo sim">Castrado</span>' : '');
 
   const acao = adotado
     ? `<div class="adotado-nota">🏡 <span><b>${temNome ? nome + " já tem família." : "Já tem família."}</b> Mais uma vida transformada por quem ajudou o projeto.</span></div>`
