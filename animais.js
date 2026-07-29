@@ -281,6 +281,24 @@ const ANIMAIS = [
     historia: "Está nas ruas. Recebeu os cuidados, mas continua na rua no aguardo de uma família.",
   },
 
+   {
+    nome: "",
+    tipo: "cachorro",
+    foto: "25.jpeg",
+    whatsapp: "19 98197-8641",
+    sexo: "Fêmea",
+    idade: "Aprox. 3 anos",
+    porte: "Médio",
+    peso: "",
+    castrado: true,
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "",
+    historia: "",
+  },
+
   {
     nome: "",
     tipo: "cachorro",
