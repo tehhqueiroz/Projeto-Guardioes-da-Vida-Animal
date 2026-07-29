@@ -6,9 +6,10 @@
 
    COMO ADICIONAR UM ANIMAL:
    1. Suba a foto no GitHub, na MESMA pasta do site.
-      Use nome simples, sem espaço e sem acento: ex. "luna.jpeg"
+      Use o número como nome do arquivo: "25.jpeg", "26.jpeg"...
    2. Copie o bloco de exemplo abaixo (de "{" até "},")
-      e cole antes do "];" lá no final.
+      e cole logo depois do "const ANIMAIS = [" — assim o mais novo
+      aparece primeiro na página.
    3. Preencha as informações.
 
    QUANDO O ANIMAL FOR ADOTADO:
@@ -20,18 +21,21 @@
    PARA ESCONDER UMA INFORMAÇÃO DE UM ANIMAL:
    Deixe o campo com as aspas vazias:  peso: "",
    Aquela linha simplesmente não aparece no card daquele animal.
-   Funciona em qualquer campo: idade, peso, sexo, vacinado, castrado,
-   comportamento e história.
-   Se deixar  castrado: ""  a etiqueta em cima da foto também some.
+   Funciona em qualquer campo.
+   A etiqueta "Castrado" na foto só aparece quando castrado: true.
 
    REGRAS RÁPIDAS:
-   - tipo: escreva "cachorro" ou "gato"  (isso alimenta o filtro)
+   - tipo: escreva "cachorro" ou "gato"   (filtro de cima)
+   - sexo: escreva "Macho" ou "Fêmea"     (vira a etiqueta na foto e o filtro)
+   - porte: escreva "Pequeno", "Médio" ou "Grande"   (filtro)
+   - idade: para o filtro de idade funcionar, use as palavras "meses"
+     ou "anos". Ex.: "Aprox. 8 meses", "Aprox. 2 anos", "1 ano e meio"
    - whatsapp: o número de quem cuida DAQUELE animal. Pode escrever do
      jeito que quiser: "19 99999-9999" ou "(19) 99999-9999". É esse número
      que abre quando alguém clica em "Quero adotar".
-   - nome: também é opcional. Se deixar  nome: ""  o card fica sem nome e
+   - nome: é opcional. Se deixar  nome: ""  o card fica sem nome e
      o botão vira só "Quero adotar".
-   - castrado / vacinado: escreva true (sim) ou false (não)
+   - castrado / vacinado / vermifugado / chipado: true (sim) ou false (não)
    - adotado: false enquanto procura lar / true quando for adotado
    - texto sempre entre "aspas"
    - toda linha termina com vírgula
@@ -41,15 +45,18 @@
    BLOCO DE EXEMPLO PARA COPIAR:
 
    {
-     nome: "Nome do animal",
+     nome: "",
      tipo: "cachorro",
-     foto: "arquivo.jpeg",
+     foto: "25.jpeg",
      whatsapp: "19 99999-9999",
      sexo: "Fêmea",
      idade: "Aprox. 1 ano",
-     peso: "10 kg",
+     porte: "Médio",
+     peso: "",
      castrado: true,
-     vacinado: false,      // use "" para não mostrar esta linha
+     vacinado: false,
+     vermifugado: "",
+     chipado: "",
      adotado: false,
      comportamento: "Descrição curta do jeitinho dele.",
      historia: "Onde foi resgatado e o que aconteceu até aqui.",
@@ -60,18 +67,291 @@
 const ANIMAIS = [
 
   {
+    nome: "Mia",
+    tipo: "cachorro",
+    foto: "24.jpeg",
+    whatsapp: "19 99321-3477",
+    sexo: "Fêmea",
+    idade: "Aprox. 10 meses",
+    porte: "Grande",
+    peso: "",
+    castrado: true,
+    vacinado: true,
+    vermifugado: true,
+    chipado: "",
+    adotado: false,
+    comportamento: "Se dá bem com crianças e com outros cães. Grandona, mas das mais tranquilas.",
+    historia: "",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "23.jpeg",
+    whatsapp: "19 99428-4609",
+    sexo: "Macho",
+    idade: "Aprox. 7 anos",
+    porte: "",
+    peso: "",
+    castrado: true,
+    vacinado: true,
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "Muito amoroso, carinhoso e dócil.",
+    historia: "Está em situação de rua. Já passou da fase de filhote e espera por alguém que queira um companheiro calmo.",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "22.jpeg",
+    whatsapp: "19 99314-3668",
+    sexo: "Macho",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: true,
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "Dócil e carinhoso.",
+    historia: "",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "21.jpeg",
+    whatsapp: "19 99518-1868",
+    sexo: "Macho",
+    idade: "Aprox. 5 anos",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "Brincalhão.",
+    historia: "A tutora está doente e não tem mais como cuidar dele. Ele já teve um lar e precisa de outro que continue de onde ela parou.",
+  },
+
+  {
+    nome: "Nora",
+    tipo: "cachorro",
+    foto: "20.jpeg",
+    whatsapp: "19 98184-9827",
+    sexo: "Fêmea",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "Muito amorosa.",
+    historia: "",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "19.jpeg",
+    whatsapp: "19 99525-1284",
+    sexo: "Macho",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: false,
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "Muito dócil e se dá muito bem com crianças.",
+    historia: "Foi abandonado na rua.",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "18.jpeg",
+    whatsapp: "19 98138-8259",
+    sexo: "Fêmea",
+    idade: "Aprox. 2 meses",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: true,
+    chipado: "",
+    adotado: false,
+    comportamento: "",
+    historia: "Ainda é bebê e tem a vida inteira pela frente para conhecer uma família.",
+  },
+
+  {
+    nome: "Fred",
+    tipo: "cachorro",
+    foto: "17.jpeg",
+    whatsapp: "",
+    sexo: "Macho",
+    idade: "Aprox. 3 anos",
+    porte: "",
+    peso: "",
+    castrado: false,
+    vacinado: true,
+    vermifugado: true,
+    chipado: "",
+    adotado: false,
+    comportamento: "Carinhoso, companheiro e dócil. Adora carinho e atenção.",
+    historia: "",
+  },
+
+  {
+    nome: "Titinho",
+    tipo: "cachorro",
+    foto: "16.jpeg",
+    whatsapp: "19 97427-0393",
+    sexo: "Macho",
+    idade: "1 ano e meio",
+    porte: "",
+    peso: "",
+    castrado: true,
+    vacinado: true,
+    vermifugado: true,
+    chipado: true,
+    adotado: false,
+    comportamento: "Bastante brincalhão e carinhoso. Gosta da companhia de outros cães.",
+    historia: "",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "15.jpeg",
+    whatsapp: "19 98232-5796",
+    sexo: "Macho",
+    idade: "Aprox. 6 meses",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: true,
+    vermifugado: true,
+    chipado: "",
+    adotado: false,
+    comportamento: "",
+    historia: "",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "14.jpeg",
+    whatsapp: "19 99589-1180",
+    sexo: "",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "Mansinho e dócil.",
+    historia: "Os antigos donos se mudaram e deixaram os dois na rua. Dona Nalcy está cuidando deles enquanto pode, mas não tem como ficar com eles e procura um lar de verdade.",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "13.jpeg",
+    whatsapp: "19 99589-1180",
+    sexo: "Macho",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "Mansinho e dócil.",
+    historia: "Os antigos donos se mudaram e deixaram os dois na rua. Dona Nalcy está cuidando deles enquanto pode, mas não tem como ficar com eles e procura um lar de verdade.",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "12.jpeg",
+    whatsapp: "19 99314-3668",
+    sexo: "Fêmea",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "",
+    historia: "Está em situação de rua.",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "11.jpeg",
+    whatsapp: "19 99314-3668",
+    sexo: "Fêmea",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "",
+    historia: "Está em situação de rua.",
+  },
+
+  {
+    nome: "",
+    tipo: "cachorro",
+    foto: "10.jpeg",
+    whatsapp: "19 99314-3668",
+    sexo: "Macho",
+    idade: "",
+    porte: "",
+    peso: "",
+    castrado: "",
+    vacinado: "",
+    vermifugado: "",
+    chipado: "",
+    adotado: false,
+    comportamento: "",
+    historia: "Está em situação de rua.",
+  },
+
+  {
     nome: "",
     tipo: "cachorro",
     foto: "09.jpeg",
     whatsapp: "19 99428-4609",
     sexo: "Macho",
     idade: "Aprox. 8 meses",
+    porte: "Médio",
     peso: "Aprox. 12 kg",
     castrado: false,
     vacinado: true,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
     comportamento: "Muito dócil.",
-    historia: "Ele está em situação de rua, aguardando um lar.",
+    historia: "Está em situação de rua, aguardando um lar.",
   },
 
   {
@@ -81,12 +361,15 @@ const ANIMAIS = [
     whatsapp: "19 99428-4609",
     sexo: "Macho",
     idade: "Aprox. 4 meses",
+    porte: "Médio",
     peso: "",
     castrado: false,
     vacinado: true,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
     comportamento: "Muito carinhoso e fofinho com todos.",
-    historia: "Nasceu na rua e continua sem um lar. Está aguardando uma família para sair dar rua.",
+    historia: "Nasceu na rua e continua sem um lar. Está aguardando uma família para sair da rua.",
   },
 
   {
@@ -96,9 +379,12 @@ const ANIMAIS = [
     whatsapp: "19 99428-4609",
     sexo: "Macho",
     idade: "Aprox. 4 meses",
+    porte: "Médio",
     peso: "",
     castrado: false,
     vacinado: true,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
     comportamento: "Muito amoroso e carinhoso com todos.",
     historia: "Nasceu na rua e está em situação de rua, aguardando ser adotado.",
@@ -111,86 +397,104 @@ const ANIMAIS = [
     whatsapp: "19 99428-4609",
     sexo: "Fêmea",
     idade: "Aprox. 2 anos",
+    porte: "Médio",
     peso: "Aprox. 13 kg",
     castrado: true,
     vacinado: true,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
-    comportamento: "Dócil, gosta de receber carinho e muito tranquila com todos.",
-    historia: "Está em situação de rua, foi castrada e vacinada porém está sem lar temporário e sem um lar definitivo.",
+    comportamento: "Dócil, gosta de receber carinho e é muito tranquila com todos.",
+    historia: "Está em situação de rua. Foi castrada e vacinada, mas segue sem lar temporário e sem um lar definitivo.",
   },
 
-     {
+  {
     nome: "",
     tipo: "cachorro",
     foto: "05.jpeg",
     whatsapp: "19 99428-4609",
     sexo: "Fêmea",
     idade: "Aprox. 2 anos",
+    porte: "Médio",
     peso: "Aprox. 14 kg",
     castrado: true,
     vacinado: true,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
-    comportamento: "Muito carinhosa e dócil com as pessoas e animais ao redor.",
-    historia: "Está nas ruas, recebeu os cuidados mas continua na rua no aguardo de uma família.",
+    comportamento: "Muito carinhosa e dócil com as pessoas e com os animais ao redor.",
+    historia: "Está nas ruas. Recebeu os cuidados, mas continua na rua no aguardo de uma família.",
   },
 
-     {
+  {
     nome: "",
     tipo: "cachorro",
     foto: "04.jpeg",
     whatsapp: "19 99428-4609",
     sexo: "Macho",
     idade: "Aprox. 2 anos",
+    porte: "Pequeno",
     peso: "Aprox. 11 kg",
     castrado: true,
     vacinado: true,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
-    comportamento: "Muito carinhoso e amoroso, adora humanos e animais.",
+    comportamento: "Muito carinhoso e amoroso. Adora humanos e outros animais.",
     historia: "Está em situação de rua, aguardando uma família para adotá-lo.",
   },
 
-     {
+  {
     nome: "",
     tipo: "cachorro",
     foto: "03.jpeg",
     whatsapp: "19 99428-4609",
     sexo: "Macho",
     idade: "Aprox. 2 anos",
+    porte: "Médio",
     peso: "Aprox. 15 kg",
     castrado: true,
     vacinado: true,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
     comportamento: "Muito amoroso, gosta de carinho e de atenção.",
-    historia: "Foi castrado e vacinado porém continua em situação de rua aguardando uma família.",
+    historia: "Foi castrado e vacinado, mas continua em situação de rua aguardando uma família.",
   },
 
-     {
+  {
     nome: "",
     tipo: "cachorro",
     foto: "02.jpeg",
     whatsapp: "19 99461-9201",
     sexo: "Macho",
     idade: "Aprox. 1 ano",
+    porte: "Médio",
     peso: "Aprox. 15 kg",
     castrado: true,
     vacinado: false,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
     comportamento: "Dócil e muito esperto.",
     historia: "Está em situação de rua aguardando uma família.",
   },
 
-     {
+  {
     nome: "",
     tipo: "cachorro",
     foto: "01.jpeg",
     whatsapp: "19 99461-9201",
     sexo: "Fêmea",
     idade: "Aprox. 1 ano",
+    porte: "Médio",
     peso: "Aprox. 14 kg",
     castrado: true,
     vacinado: false,
+    vermifugado: "",
+    chipado: "",
     adotado: false,
-    comportamento: "Dócil, muito carinhoso e esperto.",
+    comportamento: "Dócil, muito carinhosa e esperta.",
     historia: "Está em situação de rua aguardando uma família.",
   },
 
