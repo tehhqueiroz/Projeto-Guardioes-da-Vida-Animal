@@ -195,6 +195,52 @@ p{margin:0}
 .filtro button[aria-pressed="true"]{background:var(--olive-800);border-color:var(--olive-800);color:#fff}
 .contador{font-family:var(--f-mono);font-size:13px;color:var(--ink-60)}
 
+.btn-filtros{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;
+  background:transparent;color:var(--olive-800);
+  border:1.5px solid rgba(46,57,34,.22);border-radius:999px;
+  padding:10px 18px;cursor:pointer;transition:all .18s;
+}
+.btn-filtros:hover{border-color:var(--olive-700)}
+.btn-filtros svg{width:14px;height:14px;fill:currentColor}
+.btn-filtros[aria-expanded="true"]{background:var(--sage-100);border-color:var(--olive-700)}
+.btn-filtros .badge{
+  background:var(--terra);color:#fff;border-radius:999px;
+  min-width:19px;height:19px;display:inline-flex;align-items:center;justify-content:center;
+  font-size:11px;padding:0 5px;
+}
+.btn-filtros .badge[hidden]{display:none}
+
+.painel{
+  background:var(--paper);border:1px solid rgba(46,57,34,.16);
+  border-radius:var(--r);padding:22px 22px 18px;margin-bottom:26px;
+}
+.painel-grid{display:grid;gap:22px;grid-template-columns:repeat(3,auto) 1fr}
+@media (max-width:900px){.painel-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.painel-grid{grid-template-columns:1fr}}
+.grupo .marca{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:10px;
+}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{position:relative;cursor:pointer;user-select:none}
+.chip input{position:absolute;opacity:0;width:0;height:0}
+.chip span{
+  display:inline-block;font-size:14px;
+  border:1.5px solid rgba(46,57,34,.2);border-radius:999px;
+  padding:8px 15px;transition:all .16s;background:var(--sand);
+}
+.chip:hover span{border-color:var(--olive-700)}
+.chip input:focus-visible + span{outline:3px solid var(--terra);outline-offset:2px}
+.chip.on span{background:var(--olive-800);border-color:var(--olive-800);color:#fff}
+.painel-rodape{margin-top:18px;padding-top:14px;border-top:1px solid rgba(46,57,34,.12)}
+#limpar-filtros{
+  background:none;border:0;cursor:pointer;padding:0;
+  font-family:var(--f-body);font-size:14px;font-weight:600;color:var(--terra-700);
+}
+#limpar-filtros:hover{text-decoration:underline}
+
 /* ---------- CARDS ---------- */
 .lista{display:grid;gap:26px;max-width:920px}
 .bicho{
@@ -221,6 +267,15 @@ p{margin:0}
   padding:7px 13px;border-radius:999px;color:#fff;backdrop-filter:blur(4px);
 }
 .selo.sim{background:rgba(46,57,34,.88)}
+.selo-sexo{
+  position:absolute;right:14px;bottom:14px;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 13px;border-radius:999px;
+  background:rgba(255,253,248,.94);color:var(--olive-900);
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+.dado dd a{color:var(--terra-700);text-decoration:none;border-bottom:1px solid rgba(168,94,67,.35)}
+.dado dd a:hover{color:var(--terra)}
 
 /* animal já adotado */
 .bicho.foi-adotado{background:#F3F1E8}
@@ -435,8 +490,51 @@ p{margin:0}
         <button type="button" data-f="cachorro" aria-pressed="false">Cachorros</button>
         <button type="button" data-f="gato" aria-pressed="false">Gatos</button>
         <button type="button" data-f="adotados" class="destaque" id="btn-adotados" aria-pressed="false" hidden>Já adotados</button>
+        <button type="button" class="btn-filtros" id="abrir-filtros" aria-expanded="false" aria-controls="painel-filtros">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></svg>
+          Filtros<span class="badge" id="badge-filtros" hidden></span>
+        </button>
       </div>
       <p class="contador" id="contador"></p>
+    </div>
+
+    <div class="painel" id="painel-filtros" hidden>
+      <div class="painel-grid">
+        <div class="grupo">
+          <p class="marca">Sexo</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" data-g="sexo" value="f"><span>Fêmea</span></label>
+            <label class="chip"><input type="checkbox" data-g="sexo" value="m"><span>Macho</span></label>
+          </div>
+        </div>
+        <div class="grupo">
+          <p class="marca">Porte</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" data-g="porte" value="pequeno"><span>Pequeno</span></label>
+            <label class="chip"><input type="checkbox" data-g="porte" value="medio"><span>Médio</span></label>
+            <label class="chip"><input type="checkbox" data-g="porte" value="grande"><span>Grande</span></label>
+          </div>
+        </div>
+        <div class="grupo">
+          <p class="marca">Situação</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" data-g="castrado" value="sim"><span>Castrado</span></label>
+          </div>
+        </div>
+        <div class="grupo grupo-largo">
+          <p class="marca">Idade</p>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" data-g="idade" value="12"><span>Até 1 ano</span></label>
+            <label class="chip"><input type="checkbox" data-g="idade" value="24"><span>Até 2 anos</span></label>
+            <label class="chip"><input type="checkbox" data-g="idade" value="36"><span>Até 3 anos</span></label>
+            <label class="chip"><input type="checkbox" data-g="idade" value="60"><span>Até 5 anos</span></label>
+            <label class="chip"><input type="checkbox" data-g="idade" value="73+"><span>Mais de 6 anos</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="painel-rodape">
+        <button type="button" id="limpar-filtros">Limpar filtros</button>
+      </div>
     </div>
 
     <div class="lista" id="lista"></div>
@@ -486,6 +584,25 @@ function simNao(v){ return vazio(v) ? "" : (v === true ? "Sim" : "Não"); }
 
 /* Aceita o número escrito de qualquer jeito: "19 99999-9999", "(19)99999-9999",
    "5519999999999"... Se o animal não tiver número, usa o número geral do projeto. */
+/* Converte "Aprox. 1 ano e meio", "6 meses", "3 anos" em número de meses.
+   Serve para o filtro de idade. Se não entender, devolve null. */
+function idadeEmMeses(txt){
+  if(vazio(txt)) return null;
+  const t = String(txt).toLowerCase().replace(",", ".");
+  let meses = null;
+  const anos = t.match(/(\d+(?:\.\d+)?)\s*anos?/);
+  if(anos){ meses = parseFloat(anos[1]) * 12; if(/e\s*meio/.test(t)) meses += 6; }
+  const m = t.match(/(\d+(?:\.\d+)?)\s*(meses|m[eê]s)/);
+  if(m){ meses = (meses || 0) + parseFloat(m[1]); }
+  return meses;
+}
+
+/* Tira acento e deixa minúsculo, para comparar "Médio" com "medio". */
+function chave(v){
+  return String(v == null ? "" : v).toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+}
+
 function foneWA(v){
   let d = String(v == null ? "" : v).replace(/\D/g, "");
   if(!d) return FONE;
@@ -509,6 +626,11 @@ function cardHTML(a){
     ? '<div class="carimbo"><b>Adotado</b><em>Encontrou um lar</em></div>'
     : (a.castrado === true ? '<span class="selo sim">Castrado</span>' : '');
 
+  const sx = chave(a.sexo);
+  const etiquetaSexo = sx.startsWith("f") ? '<span class="selo-sexo">♀ Fêmea</span>'
+                     : sx.startsWith("m") ? '<span class="selo-sexo">♂ Macho</span>'
+                     : '';
+
   const acao = adotado
     ? `<div class="adotado-nota">🏡 <span><b>${temNome ? nome + " já tem família." : "Já tem família."}</b> Mais uma vida transformada por quem ajudou o projeto.</span></div>`
     : `<a class="btn btn-olive" href="https://wa.me/${fone}?text=${msg}" target="_blank" rel="noopener">Quero adotar${temNome ? " " + nome : ""}</a>`;
@@ -516,15 +638,22 @@ function cardHTML(a){
   const linha = (rot, val) => vazio(val) ? "" : `
     <div class="dado"><dt>${rot}</dt><dd>${escapar(val)}</dd></div>`;
 
+  const linhaLink = (rot, val, href) => vazio(val) ? "" : `
+    <div class="dado"><dt>${rot}</dt><dd><a href="${href}" target="_blank" rel="noopener">${escapar(val)}</a></dd></div>`;
+
   const bloco = (rot, txt) => vazio(txt) ? "" : `
       <div class="bloco"><h4>${rot}</h4><p>${escapar(txt)}</p></div>`;
 
   const fichaLinhas = [
     linha("Sexo", a.sexo),
     linha("Idade", a.idade),
+    linha("Porte", a.porte),
     linha("Peso", a.peso),
     linha("Castrado", simNao(a.castrado)),
     linha("Vacinado", simNao(a.vacinado)),
+    linha("Vermifugado", simNao(a.vermifugado)),
+    linha("Chipado", simNao(a.chipado)),
+    linhaLink("WhatsApp", a.whatsapp, `https://wa.me/${fone}`),
   ].join("");
 
   return `
@@ -534,6 +663,7 @@ function cardHTML(a){
            onerror="this.style.display='none';this.parentNode.classList.add('vazia')">
       <div class="semfoto"><b>🐾</b><span>Foto em breve</span></div>
       ${sobreFoto}
+      ${etiquetaSexo}
     </div>
     <div class="bicho-info">
       <div class="bicho-nome">
@@ -548,25 +678,57 @@ function cardHTML(a){
   </article>`;
 }
 
+/* Lê os quadradinhos marcados no painel de filtros */
+function filtrosMarcados(){
+  const sel = { sexo:[], porte:[], castrado:[], idade:[] };
+  document.querySelectorAll("#painel-filtros input:checked").forEach(i => {
+    sel[i.dataset.g].push(i.value);
+  });
+  return sel;
+}
+
+function passaNosFiltros(a, sel){
+  if (sel.sexo.length && !sel.sexo.includes(chave(a.sexo).charAt(0))) return false;
+  if (sel.porte.length && !sel.porte.includes(chave(a.porte))) return false;
+  if (sel.castrado.length && a.castrado !== true) return false;
+  if (sel.idade.length){
+    const m = idadeEmMeses(a.idade);
+    if (m === null) return false;
+    const ok = sel.idade.some(v => v === "73+" ? m > 72 : m <= Number(v));
+    if (!ok) return false;
+  }
+  return true;
+}
+
 function render(){
   const dados = (typeof ANIMAIS !== "undefined" ? ANIMAIS : []);
+  const sel = filtrosMarcados();
 
   const vis = dados.filter(a => {
     const jaAdotado = a.adotado === true;
-    if (filtroAtual === "adotados") return jaAdotado;
-    if (jaAdotado) return false;                       // adotados não aparecem nos outros filtros
-    if (filtroAtual === "todos") return true;
-    return (a.tipo || "").toLowerCase() === filtroAtual;
+    if (filtroAtual === "adotados") { if (!jaAdotado) return false; }
+    else {
+      if (jaAdotado) return false;                     // adotados não aparecem nos outros filtros
+      if (filtroAtual !== "todos" && (a.tipo || "").toLowerCase() !== filtroAtual) return false;
+    }
+    return passaNosFiltros(a, sel);
   });
+
+  const ativos = sel.sexo.length + sel.porte.length + sel.castrado.length + sel.idade.length;
+  const badge = document.getElementById("badge-filtros");
+  badge.hidden = ativos === 0;
+  badge.textContent = ativos;
 
   const n = vis.length;
 
   if (n) {
     lista.innerHTML = vis.map(cardHTML).join("");
   } else {
-    lista.innerHTML = filtroAtual === "adotados"
-      ? `<p class="vazio">Ainda não há adoções registradas aqui.</p>`
-      : `<p class="vazio">Nenhum animal deste tipo esperando adoção no momento.</p>`;
+    lista.innerHTML = ativos
+      ? `<p class="vazio">Nenhum animal com essa combinação de filtros. Tente tirar alguma opção.</p>`
+      : filtroAtual === "adotados"
+        ? `<p class="vazio">Ainda não há adoções registradas aqui.</p>`
+        : `<p class="vazio">Nenhum animal deste tipo esperando adoção no momento.</p>`;
   }
 
   if (filtroAtual === "adotados") {
@@ -588,13 +750,38 @@ function montarBotaoAdotados(){
   }
 }
 
-document.querySelectorAll(".filtro button").forEach(b => {
+document.querySelectorAll(".filtro button[data-f]").forEach(b => {
   b.addEventListener("click", () => {
     filtroAtual = b.dataset.f;
-    document.querySelectorAll(".filtro button")
+    document.querySelectorAll(".filtro button[data-f]")
       .forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
     render();
   });
+});
+
+/* Painel de filtros adicionais */
+const painel = document.getElementById("painel-filtros");
+const abrir = document.getElementById("abrir-filtros");
+
+abrir.addEventListener("click", () => {
+  const aberto = abrir.getAttribute("aria-expanded") === "true";
+  abrir.setAttribute("aria-expanded", String(!aberto));
+  painel.hidden = aberto;
+});
+
+painel.addEventListener("change", e => {
+  if (e.target.matches("input[type=checkbox]")){
+    e.target.closest(".chip").classList.toggle("on", e.target.checked);
+    render();
+  }
+});
+
+document.getElementById("limpar-filtros").addEventListener("click", () => {
+  painel.querySelectorAll("input:checked").forEach(i => {
+    i.checked = false;
+    i.closest(".chip").classList.remove("on");
+  });
+  render();
 });
 
 /* Copiar chave Pix */
